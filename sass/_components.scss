@@ -119,11 +119,24 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        margin-top: 0;
+        display: flex;
+    }
+
     &__item {
         position: relative;
 
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;   
+        }
+
         &:not(:last-child) {
             margin-bottom: .5rem;
+            
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 0;
+            }
         }
 
         &::before {
@@ -166,6 +179,11 @@
         display: flex;
         align-items: center;
 
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+    }
+
     }
 
     &__icon {
@@ -182,6 +200,10 @@
     color: var(--color-Grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 //------------ Gallery ------------
@@ -343,7 +365,7 @@
     }
 
     &__friends {
-
+        display: flex;
     }
 
     &__photo {
@@ -354,7 +376,7 @@
         border: 3px solid #fff;
 
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -367,6 +389,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 3rem;
+        padding: 2rem; 
+    }
 
 
     &__text {
@@ -422,7 +449,72 @@
     }
 }
 
+//------------ Call to action -------------
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+
+    &__visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &__invisible {
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem 0;
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%);
+    }
+
+    &:hover &__invisible {
+        top: 0;    
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+
+    
+}
 
 
 
